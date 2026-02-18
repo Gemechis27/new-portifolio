@@ -1,0 +1,71 @@
+<svg width="128" height="128" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="awsOrange" x1="24" y1="18" x2="96" y2="102">
+      <stop offset="0%" stop-color="#FFB84D"></stop>
+      <stop offset="55%" stop-color="#FF9900"></stop>
+      <stop offset="100%" stop-color="#FF6A00"></stop>
+    </linearGradient>
+
+    <linearGradient id="coolGray" x1="30" y1="20" x2="90" y2="100">
+      <stop offset="0%" stop-color="#E9EEF5"></stop>
+      <stop offset="100%" stop-color="#B9C3D4"></stop>
+    </linearGradient>
+
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(60 60) rotate(90) scale(54)">
+      <stop offset="0%" stop-color="#FF9900" stop-opacity="0.22"></stop>
+      <stop offset="100%" stop-color="#FF9900" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+
+  <!-- soft glow -->
+  <circle cx="60" cy="60" r="54" fill="url(#glow)"></circle>
+
+  <!-- rocket body -->
+  <path d="M60 18
+           C76 28, 86 44, 86 62
+           C86 78, 78 92, 66 101
+           C63 103, 57 103, 54 101
+           C42 92, 34 78, 34 62
+           C34 44, 44 28, 60 18Z" fill="url(#coolGray)"></path>
+
+  <!-- body highlight -->
+  <path d="M60 24
+           C70 32, 78 45, 78 62
+           C78 74, 72 86, 63 94
+           C61 96, 59 96, 57 94
+           C48 86, 42 74, 42 62
+           C42 45, 50 32, 60 24Z" fill="#FFFFFF" opacity="0.55"></path>
+
+  <!-- window -->
+  <circle cx="60" cy="52" r="9" fill="#0B1220" opacity="0.85"></circle>
+  <circle cx="60" cy="52" r="5.5" fill="#61DAFB" opacity="0.95"></circle>
+
+  <!-- side fins -->
+  <path d="M34 64
+           C26 68, 22 76, 22 84
+           C30 84, 38 80, 42 72
+           C39 70, 36 67, 34 64Z" fill="url(#awsOrange)"></path>
+
+  <path d="M86 64
+           C94 68, 98 76, 98 84
+           C90 84, 82 80, 78 72
+           C81 70, 84 67, 86 64Z" fill="url(#awsOrange)"></path>
+
+  <!-- flame -->
+  <path d="M60 100
+           C66 94, 70 88, 70 82
+           C66 84, 62 84, 60 82
+           C58 84, 54 84, 50 82
+           C50 88, 54 94, 60 100Z" fill="url(#awsOrange)"></path>
+
+  <!-- flame inner -->
+  <path d="M60 96
+           C63 93, 65 89, 65 86
+           C63 87, 61 87, 60 86
+           C59 87, 57 87, 55 86
+           C55 89, 57 93, 60 96Z" fill="#FFE3B3" opacity="0.9"></path>
+
+  <!-- launch trail -->
+  <path d="M60 104 C58 108, 56 112, 56 116" stroke="#FF9900" stroke-width="5" stroke-linecap="round" opacity="0.75"></path>
+  <path d="M60 104 C62 108, 64 112, 64 116" stroke="#FFB84D" stroke-width="5" stroke-linecap="round" opacity="0.55"></path>
+</svg>

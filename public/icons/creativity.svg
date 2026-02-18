@@ -1,0 +1,67 @@
+<svg width="128" height="128" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Brain gradient -->
+    <linearGradient id="brainGradient" x1="20" y1="30" x2="100" y2="100">
+      <stop offset="0%" stop-color="#A259FF"></stop>
+      <stop offset="50%" stop-color="#6366F1"></stop>
+      <stop offset="100%" stop-color="#06B6D4"></stop>
+    </linearGradient>
+
+    <!-- Spark gradient -->
+    <linearGradient id="sparkGradient" x1="40" y1="10" x2="80" y2="40">
+      <stop offset="0%" stop-color="#FDE68A"></stop>
+      <stop offset="100%" stop-color="#F59E0B"></stop>
+    </linearGradient>
+
+    <!-- Soft glow -->
+    <radialGradient id="creativeGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(60 60) rotate(90) scale(55)">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.20"></stop>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+
+  <!-- Glow -->
+  <circle cx="60" cy="60" r="55" fill="url(#creativeGlow)"></circle>
+
+  <!-- Brain outline -->
+  <path d="M40 70
+           C30 65, 30 50, 42 45
+           C42 35, 55 30, 60 38
+           C65 30, 78 35, 78 45
+           C90 50, 90 65, 80 70
+           C80 85, 65 90, 60 82
+           C55 90, 40 85, 40 70Z" fill="url(#brainGradient)" stroke="url(#brainGradient)" stroke-width="3"></path>
+
+  <!-- Brain center line -->
+  <path d="M60 40 L60 82" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.6"></path>
+
+  <!-- Main top spark -->
+  <path d="M60 10
+           L66 25
+           L82 30
+           L66 35
+           L60 50
+           L54 35
+           L38 30
+           L54 25 Z" fill="url(#sparkGradient)"></path>
+
+  <!-- Small side spark left -->
+  <path d="M30 35
+           L34 43
+           L42 45
+           L34 47
+           L30 55
+           L26 47
+           L18 45
+           L26 43 Z" fill="url(#sparkGradient)" opacity="0.8"></path>
+
+  <!-- Small side spark right -->
+  <path d="M90 35
+           L94 43
+           L102 45
+           L94 47
+           L90 55
+           L86 47
+           L78 45
+           L86 43 Z" fill="url(#sparkGradient)" opacity="0.8"></path>
+</svg>

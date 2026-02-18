@@ -1,0 +1,30 @@
+<svg width="128" height="128" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="codeGradient" x1="20" y1="20" x2="100" y2="100">
+      <stop offset="0%" stop-color="#6366F1"></stop>
+      <stop offset="50%" stop-color="#8B5CF6"></stop>
+      <stop offset="100%" stop-color="#06B6D4"></stop>
+    </linearGradient>
+
+    <radialGradient id="softGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(60 60) rotate(90) scale(55)">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.18"></stop>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+
+  <!-- Soft background glow -->
+  <circle cx="60" cy="60" r="55" fill="url(#softGlow)"></circle>
+
+  <!-- Rounded container -->
+  <rect x="30" y="35" width="60" height="50" rx="12" stroke="url(#codeGradient)" stroke-width="5"></rect>
+
+  <!-- Top dots (window UI feel) -->
+  <circle cx="45" cy="47" r="4" fill="#6366F1"></circle>
+  <circle cx="60" cy="47" r="4" fill="#8B5CF6"></circle>
+  <circle cx="75" cy="47" r="4" fill="#06B6D4"></circle>
+
+  <!-- Code lines -->
+  <line x1="45" y1="65" x2="75" y2="65" stroke="url(#codeGradient)" stroke-width="5" stroke-linecap="round"></line>
+
+  <line x1="50" y1="75" x2="70" y2="75" stroke="url(#codeGradient)" stroke-width="5" stroke-linecap="round"></line>
+</svg>

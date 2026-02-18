@@ -1,0 +1,42 @@
+<svg width="128" height="128" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Cloud gradient -->
+    <linearGradient id="cloudGradient" x1="20" y1="30" x2="100" y2="95">
+      <stop offset="0%" stop-color="#E6F0FA"></stop>
+      <stop offset="100%" stop-color="#B9D6F2"></stop>
+    </linearGradient>
+
+    <!-- AWS orange underline -->
+    <linearGradient id="accentGradient" x1="35" y1="85" x2="85" y2="95">
+      <stop offset="0%" stop-color="#FFB84D"></stop>
+      <stop offset="100%" stop-color="#FF9900"></stop>
+    </linearGradient>
+
+    <!-- Soft glow -->
+    <radialGradient id="cloudGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(60 60) rotate(90) scale(55)">
+      <stop offset="0%" stop-color="#61DAFB" stop-opacity="0.15"></stop>
+      <stop offset="100%" stop-color="#61DAFB" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+
+  <!-- Glow -->
+  <circle cx="60" cy="60" r="55" fill="url(#cloudGlow)"></circle>
+
+  <!-- Cloud body -->
+  <path d="M40 80
+           H82
+           C92 80 98 72 98 63
+           C98 54 91 47 82 47
+           C80 35 70 28 60 28
+           C49 28 39 36 37 48
+           C28 48 22 55 22 63
+           C22 72 30 80 40 80Z" fill="url(#cloudGradient)"></path>
+
+  <!-- AWS text -->
+  <text x="60" y="65" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#232F3E">
+    AWS
+  </text>
+
+  <!-- AWS style smile underline -->
+  <path d="M42 88 C55 96, 75 96, 88 88" stroke="url(#accentGradient)" stroke-width="6" stroke-linecap="round"></path>
+</svg>

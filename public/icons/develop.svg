@@ -1,0 +1,19 @@
+<svg width="128" height="128" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="devGrad" x1="0" y1="0" x2="120" y2="120">
+      <stop offset="0%" stop-color="#61DAFB"></stop>
+      <stop offset="100%" stop-color="#1ABCFE"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Soft background glow -->
+  <circle cx="60" cy="60" r="54" fill="url(#devGrad)" opacity="0.12"></circle>
+
+  <!-- Code brackets -->
+  <path d="M40 45 L25 60 L40 75" stroke="#61DAFB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <path d="M80 45 L95 60 L80 75" stroke="#61DAFB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- Center slash -->
+  <line x1="65" y1="40" x2="55" y2="80" stroke="#1ABCFE" stroke-width="6" stroke-linecap="round"></line>
+</svg>

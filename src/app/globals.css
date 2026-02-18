@@ -1,26 +1,532 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
+/* ================================
+   Theme Tokens
+================================ */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ================================
+   Light Theme
+================================ */
+:root {
+  --radius: 0.625rem;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+}
+
+/* ================================
+   Dark Theme
+================================ */
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+}
+
+/* ================================
+   Base Layer
+================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ===============================
+   Dark mode star field (global)
+   =============================== */
+.star-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1.5px 1.5px at 30% 80%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 50% 40%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(2px 2px at 70% 30%, rgba(255,255,255,0.85), transparent),
+    radial-gradient(2px 2px at 25% 50%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(3px 3px at 35% 70%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 85% 40%, rgba(255,255,255,0.85), transparent),
+    radial-gradient(2px 2px at 95% 65%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,0.8), transparent);
+
+  background-repeat: repeat;
+  background-size: 240px 240px;
+  opacity: 0.6;
+
+  animation: star-drift 70s linear infinite;
 }
+
+@keyframes star-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -1000px 1400px;
+  }
+}
+
+
+.font-luxury {
+  font-family: var(--font-playfair), serif;
+}
+.font-sanslux {
+  font-family: var(--font-inter), ui-sans-serif, system-ui;
+}
+
+/* keep your blink + stars css here (unchanged) */
+
+
+
+@keyframes bulletPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+.animate-bulletPulse {
+  animation: bulletPulse 2.4s ease-in-out infinite;
+}
+
+
+/* ===========================
+   KYROS-style Scroll Cue (improved)
+   - shadow
+   - hover border color
+   - different in light vs dark
+   =========================== */
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 300px;
+  transform: translateX(-50%);
+  z-index: 30;
+  pointer-events: auto; /* allow hover */
+}
+
+.scroll-cue__mouse {
+  width: 34px;
+  height: 54px;
+  border-radius: 999px;
+  border: 2px solid rgba(0, 0, 0, 0.35); /* light default */
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+
+  display: grid;
+  place-items: start center;
+  padding-top: 10px;
+
+  /* ✅ shadow */
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease,
+    background 220ms ease;
+}
+
+/* dot */
+.scroll-cue__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.75); /* light default */
+  animation: scrollCueDot 1.25s ease-in-out infinite;
+}
+
+/* glow ring */
+.scroll-cue__glow {
+  position: absolute;
+  inset: -12px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.12),
+    rgba(45, 212, 191, 0.08),
+    transparent 70%
+  );
+  filter: blur(8px);
+  opacity: 0.85;
+  animation: scrollCueGlow 2.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ✅ hover (LIGHT) */
+.scroll-cue:hover .scroll-cue__mouse {
+  border-color: rgba(45, 212, 191, 0.95); /* teal */
+  transform: translateY(-2px);
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.22),
+    0 0 0 1px rgba(45, 212, 191, 0.35) inset,
+    0 0 18px rgba(45, 212, 191, 0.25);
+}
+
+/* DARK mode overrides */
+html.dark .scroll-cue__mouse {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 16px 44px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.14) inset;
+}
+
+html.dark .scroll-cue__dot {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+/* ✅ hover (DARK) */
+html.dark .scroll-cue:hover .scroll-cue__mouse {
+  border-color: rgba(99, 102, 241, 0.95); /* indigo */
+  transform: translateY(-2px);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(99, 102, 241, 0.32) inset,
+    0 0 18px rgba(99, 102, 241, 0.25);
+}
+
+/* animations */
+@keyframes scrollCueDot {
+  0% { transform: translateY(0); opacity: 1; }
+  65% { transform: translateY(18px); opacity: 0.35; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scrollCueGlow {
+  0% { transform: scale(0.92); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(0.92); opacity: 0.6; }
+}
+
+/* ===========================
+   Extra bottom style
+   =========================== */
+
+.scroll-cue__label {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.scroll-cue__text {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+/* Animated vertical line */
+.scroll-cue__line {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.8),
+    rgba(0,0,0,0.2),
+    transparent
+  );
+  animation: scrollLineMove 1.6s ease-in-out infinite;
+}
+
+/* Hover effect */
+.scroll-cue:hover .scroll-cue__text {
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   LIGHT MODE STYLE
+   =========================== */
+
+html:not(.dark) .scroll-cue__text {
+  color:whitesmoke; /* slate-800 */
+}
+
+html:not(.dark) .scroll-cue__line {
+  background: linear-gradient(
+    to bottom,
+    #0f172a,
+    #14b8a6,
+    transparent
+  );
+}
+
+/* ===========================
+   DARK MODE STYLE
+   =========================== */
+
+html.dark .scroll-cue__text {
+  color: #ffffffcc;
+}
+
+html.dark .scroll-cue__line {
+  background: linear-gradient(
+    to bottom,
+    #818cf8,
+    #22d3ee,
+    transparent
+  );
+}
+
+/* ===========================
+   Line animation
+   =========================== */
+
+@keyframes scrollLineMove {
+  0% {
+    opacity: 0.4;
+    transform: translateY(-4px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 0.4;
+    transform: translateY(-4px);
+  }
+}
+
+
+
+
+
+/* =====================================================
+   MarqueeStrip – Full Width Cinematic Loop
+===================================================== */
+
+.marquee-strip {
+  width: 100vw;
+
+  /* Force full width even inside container */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  overflow: hidden;
+  background: linear-gradient(90deg, #0f172a, #1e293b, #0f172a);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.marquee-strip__panel {
+  padding: 40px 0; /* Controls height */
+}
+
+.marquee-strip__wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee-strip__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+
+  animation: marquee-loop linear infinite;
+  animation-duration: var(--marquee-duration, 160s);
+}
+
+.marquee-strip__row {
+  display: flex;
+  align-items: center;
+  gap: 3rem;  /* Space between items */
+  padding: 0 5rem;
+  white-space: nowrap;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;  /* Space between icon and text */
+}
+
+.marquee-strip__text {
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  transition: color 0.3s ease;
+}
+
+/* Divider between sections */
+.marquee-divider {
+  width: 80px;
+}
+
+/* Icon styling */
+.marquee-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: filter 0.3s ease, color 0.3s ease;
+}
+
+/* Fade edges */
+.marquee-strip__fade-left,
+.marquee-strip__fade-right {
+  pointer-events: none;
+  position: absolute;
+  inset-block: 0;
+  width: 140px;
+  z-index: 10;
+}
+
+.marquee-strip__fade-left {
+  left: 0;
+  background: linear-gradient(to right, #0f172a, transparent);
+}
+
+.marquee-strip__fade-right {
+  right: 0;
+  background: linear-gradient(to left, #0f172a, transparent);
+}
+
+/* Pause on hover */
+.marquee-strip__track:hover {
+  animation-play-state: paused;
+}
+
+/* Light / Dark Mode colors */
+:root {
+  --marquee-text: #0f172a;
+  --marquee-icon: #2563eb; /* Blue icons in light mode */
+}
+
+.dark {
+  --marquee-text: #f1f5f9;
+  --marquee-icon: #fbbf24; /* Gold icons in dark mode */
+}
+
+.marquee-strip__text {
+  color: var(--marquee-text);
+}
+
+.marquee-icon {
+  color: var(--marquee-icon);
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Seamless loop animation */
+@keyframes marquee-loop {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-strip__track {
+    animation: none;
+    transform: none;
+  }
+}
+/* Base marquee text and icon styles */
+.marquee-strip__text {
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  transition: color 0.3s ease;
+}
+
+.marquee-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: color 0.3s ease, filter 0.3s ease;
+}
+
+/* Light Mode brand colors */
+:root {
+  --color-design: #07c;      /* React blue */
+  --color-develop: #f97316;  /* Tailwind orange */
+  --color-deploy: #ff9900;   /* AWS orange */
+  --color-code: #2563eb;     /* Deep Blue */
+  --color-cloud: #06b6d4;    /* Cyan / Cloud color */
+  --color-creativity: #a855f7; /* Purple */
+}
+
+/* Dark Mode overrides */
+.dark {
+  --color-design: #60a5fa;       /* lighter blue */
+  --color-develop: #fb923c;      /* lighter orange */
+  --color-deploy: #fcd34d;       /* gold AWS */
+  --color-code: #93c5fd;         /* sky blue */
+  --color-cloud: #67e8f9;        /* cyan bright */
+  --color-creativity: #c084fc;   /* purple bright */
+}
+
+/* Apply brand colors based on data attribute */
+.marquee-item[data-type="design"] .marquee-strip__text,
+.marquee-item[data-type="design"] .marquee-icon {
+  color: var(--color-design);
+}
+
+.marquee-item[data-type="develop"] .marquee-strip__text,
+.marquee-item[data-type="develop"] .marquee-icon {
+  color: var(--color-develop);
+}
+
+.marquee-item[data-type="deploy"] .marquee-strip__text,
+.marquee-item[data-type="deploy"] .marquee-icon {
+  color: var(--color-deploy);
+}
+
+.marquee-item[data-type="code"] .marquee-strip__text,
+.marquee-item[data-type="code"] .marquee-icon {
+  color: var(--color-code);
+}
+
+.marquee-item[data-type="cloud"] .marquee-strip__text,
+.marquee-item[data-type="cloud"] .marquee-icon {
+  color: var(--color-cloud);
+}
+
+.marquee-item[data-type="creativity"] .marquee-strip__text,
+.marquee-item[data-type="creativity"] .marquee-icon {
+  color: var(--color-creativity);
+}
+
+
+
+
+
+
+
