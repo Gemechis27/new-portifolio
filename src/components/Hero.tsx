@@ -74,24 +74,23 @@ function DiagonalCollageBackground({ mode }: { mode: "light" | "dark" }) {
   }, [mx, my]);
 
   const tiles: Tile[] = useMemo(
-    () => [
-      // TOP STRIP (duplicates to fill edges)
-      { src: "/images/apple1.png", left: "-14%", top: "6%", w: 520, h: 320, depth: 14, rot: -2 },
-      { src: "/images/amazon2.jpeg", left: "10%", top: "9%", w: 560, h: 340, depth: 16, rot: 2 },
-      { src: "/images/netflex.png", left: "36%", top: "18%", w: 520, h: 320, depth: 15, rot: -2 },
-      { src: "/images/evangadiforum.png", left: "58%", top: "15%", w: 540, h: 330, depth: 17, rot: 2 },
-      { src: "/images/s3.png", left: "82%", top: "18%", w: 560, h: 340, depth: 18, rot: -2 },
-      { src: "/images/gmypoti.png", left: "106%", top: "21%", w: 520, h: 320, depth: 16, rot: 2 },
-      { src: "/images/apple1.png", left: "130%", top: "24%", w: 520, h: 320, depth: 14, rot: -2 },
-
+  () => [
+    { src: "/images/apple.webp", left: "-14%", top: "6%", w: 520, h: 320, depth: 14, rot: -2 },
+    { src: "/images/amazon2.webp", left: "10%", top: "9%", w: 560, h: 340, depth: 16, rot: 2 },
+    { src: "/images/netflix.webp", left: "37%", top: "18%", w: 450, h: 420, depth: 15, rot: -2 },
+    { src: "/images/evangadiforum.webp", left: "60%", top: "15%", w: 540, h: 330, depth: 17, rot: 2 },
+    { src: "/images/s3.webp", left: "92%", top: "18%", w: 560, h: 340, depth: 18, rot: -2 },
+    { src: "/images/gmypoti.webp", left: "122%", top: "21%", w: 520, h: 320, depth: 16, rot: 2 },
+    { src: "/images/apple.webp", left: "152%", top: "24%", w: 520, h: 320, depth: 14, rot: -2 },
+  
       // BOTTOM STRIP
-      { src: "/images/gmypoti.png", left: "-18%", top: "60%", w: 520, h: 320, depth: 16, rot: 2 },
-      { src: "/images/s3.png", left: "6%", top: "40%", w: 560, h: 350, depth: 18, rot: -2 },
-      { src: "/images/amazon2.jpeg", left: "30%", top: "50%", w: 480, h: 400, depth: 16, rot: 2 },
-      { src: "/images/netflex.png", left: "54%", top: "61%", w: 520, h: 320, depth: 15, rot: -2 },
-      { src: "/images/evangadiforum.png", left: "76%", top: "64%", w: 540, h: 330, depth: 17, rot: 2 },
-      { src: "/images/apple1.png", left: "100%", top: "67%", w: 520, h: 320, depth: 14, rot: -2 },
-      { src: "/images/gmypoti.png", left: "124%", top: "70%", w: 520, h: 320, depth: 16, rot: 2 },
+      { src: "/images/gmypoti.webp", left: "-18%", top: "60%", w: 520, h: 320, depth: 16, rot: 2 },
+      { src: "/images/s3.webp", left: "6%", top: "40%", w: 560, h: 350, depth: 18, rot: -2 },
+      { src: "/images/amazon2.webp", left: "30%", top: "50%", w: 480, h: 400, depth: 16, rot: 2 },
+      { src: "/images/abbegarage.webp", left: "54%", top: "51%", w: 520, h: 340, depth: 15, rot: -2 },
+      { src: "/images/evangadiforum.webp", left: "76%", top: "64%", w: 540, h: 330, depth: 17, rot: 2 },
+      { src: "/images/apple.webp", left: "100%", top: "67%", w: 520, h: 320, depth: 14, rot: -2 },
+      { src: "/images/gmypoti.webp", left: "124%", top: "70%", w: 520, h: 320, depth: 16, rot: 2 },
     ],
     []
   );
