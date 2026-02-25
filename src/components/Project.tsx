@@ -160,7 +160,7 @@ export default function Projects() {
        { title: "Abe Garage", 
         tech: "Coming Soon", 
         description: "Abe Garage full web app under development.", 
-        image: "/images/Abbegarage.webp", 
+        image: "/images/abbegarage.webp", 
         demo: "#", 
         github: "#", 
         stack: ["Full Stack"], 

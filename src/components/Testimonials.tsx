@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+
 import Image from "next/image";
 
 type TItem = {
@@ -85,7 +85,7 @@ export default function Testimonials() {
       title: "Project Manager",
       feedback:
         "Gemechis was amazing to work with — fast, responsive, and very professional!",
-      image: "/images/jitu.jpg",
+      image: "/images/jitu.webp",
     },
     {
       name: "Daniel Smith",

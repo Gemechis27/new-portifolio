@@ -58,7 +58,7 @@ export default function About() {
             <div className="relative w-full h-full rounded-2xl overflow-hidden">
               {/* put your about image in /public/about.jpg */}
               <Image
-                src="/images/myport.jpg"
+                src="/images/myport.webp"
                 alt="About Me"
                 fill
                 sizes="280px"
