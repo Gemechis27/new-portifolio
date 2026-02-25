@@ -19,7 +19,7 @@ export default function Certificates() {
         title: "Fullstack MERN Web Developer",
         issuer: "Evangadi ENV",
         date: "2025",
-        image: "/certificate/Fullstack.jpg",
+        image: "/certificates/fullstack.jpg",
         verifyUrl:
           "https://www.evangadi.com/academy/my-certificates/57602df8827caa3e",
       },
@@ -27,7 +27,7 @@ export default function Certificates() {
         title: "Android Developer",
         issuer: "UDACITY",
         date: "2024",
-        image: "/certificate/Android developer.jpg",
+        image: "/certificates/android-developer.jpg",
         verifyUrl:
           "https://www.udacity.com/certificate/e/8daeb880-4d7e-11ef-8e0a-53810c1769e9",
       },
@@ -35,7 +35,7 @@ export default function Certificates() {
         title: "Programming Fundamental",
         issuer: "UDACITY",
         date: "2024",
-        image: "/certificate/programming fundamental.jpg",
+        image: "/certificates/programming-fundamental.jpg",
         verifyUrl:
           "https://www.udacity.com/certificate/e/b44a75a4-596f-11ef-bcad-77375d2afcb2",
       },
@@ -43,7 +43,7 @@ export default function Certificates() {
         title: "Machine Learning",
         issuer: "Coursera",
         date: "2024",
-        image: "/certificate/Cousera.png",
+        image: "/certificates/cousera.png",
         verifyUrl: "https://example.com",
       },
     ],
