@@ -9,11 +9,16 @@ import {
   FaAws,
   FaCss3Alt,
   FaHtml5,
+  FaCloudflare,
+  FaCss3,
+  FaCloud,
+  FaCloudMeatball,
+  
 } from "react-icons/fa";
-import { SiNextdotjs, SiMysql, SiFirebase, SiStripe } from "react-icons/si";
+import { SiNextdotjs, SiMysql, SiFirebase, SiStripe, SiTailwindcss, } from "react-icons/si";
 
 /* ================= FILTER TYPES ================= */
-const filterOptions = ["All", "Frontend", "Backend", "Full Stack"] as const;
+const filterOptions = ["All", "Frontend", "Backend",  "AWS" ,"Full Stack" ] as const;
 type Filter = (typeof filterOptions)[number];
 
 /* ================= PROJECT TYPE ================= */
@@ -36,10 +41,22 @@ const stackConfig: Record<
     icon: <FaReact />,
     color: "bg-sky-200 text-sky-700 border-sky-600",
   },
+ 
   node: {
     icon: <FaNodeJs />,
     color: "bg-green-100 text-green-700 border-green-500",
   },
+
+  cloudFront: {
+    icon: <FaCloud />,
+    color: "bg-blue-700  text-yellow-500 border-red-400"
+  },
+
+  s3 :{
+    icon: <FaCss3/>,
+    color: "bg-gray-400  text-red-500 border-blue-600"
+  },
+  
   aws: {
     icon: <FaAws />,
     color: "bg-orange-100 text-orange-700 border-orange-500",
@@ -92,6 +109,14 @@ const stackConfig: Record<
     icon: <FaCss3Alt />,
     color: "bg-fuchsia-100 text-fuchsia-800 border-fuchsia-300",
   },
+ cloudfront:{
+     icon: <FaCloudMeatball/>,
+     color : "bg-gray-400 text-teal-600 border-cyan-500"
+ },
+  tailwindcss: {
+    icon: <SiTailwindcss />,
+    color: "bg-sky-100 text-sky-800 border-sky-300",
+  },
 };
 
 export default function Projects() {
@@ -106,7 +131,7 @@ export default function Projects() {
       image: "/images/apple.webp",
       demo: "https://apcloneweb.netlify.app/",
       github: "https://github.com/Gemechis27/AppleCloneReact_v2.git",
-      stack: ["React", "HTML", "CSS"],
+      stack: ["React", "HTML", "CSS","tailwindcss"],
     },
     {
       title: "Amazon E-commerce",
@@ -115,16 +140,16 @@ export default function Projects() {
       image: "/images/amazon2.webp",
       demo: "https://amazonclon14.netlify.app/",
       github: "https://github.com/Gemechis27/Amazon_frontend.git",
-      stack: ["React", "Node", "Stripe", "Firebase"],
+      stack: ["React", "Node", "Stripe", "Firebase", "tailwindcss"],
     },
     {
       title: "Amazon S3 & CloudFront",
-      tech: "Coming Soon",
-      description: "New pet project page coming soon!",
+      tech: "AWS",
+      description: "Amazon S3 + cloudfront with Router 53",
       image: "/images/s3.webp",
-      demo: "https://aws-s3-project-gules.vercel.app/",
-      github: "https://github.com/Gemechis27/aws-s3-project.git",
-      stack: ["AWS", "Next.js","API"],
+      demo: "https://aws-s3-project-4als.vercel.app/",
+      github: "https://github.com/Gemechis27/aws-s3-project",
+      stack: ["AWS", "Next.js","API","s3","cloudfront","tailwindcss"],
     },
     { title: "Netflix Clone", 
       tech: "Frontend", 
@@ -139,8 +164,19 @@ export default function Projects() {
         image: "/images/evangadiforum.webp", 
         demo: "https://evangadi-forum-final-omega.vercel.app/", 
         github: "https://github.com/Gemechis27/EvangadiForum_Final.git", 
-        stack: ["React", "Node", "Express", "MySQL"], 
+        stack: ["React", "Node", "Express", "MySQL" ,"tailwindcss"], 
       },
+
+      { title: "React Personal Portfolio", 
+        tech: "Frontend", 
+        description: "Personal portfolio website.", 
+        image: "/images/porti2.webp", 
+        demo: "https://my-port-j3of.vercel.app/", 
+        github: "#", 
+        stack: ["React", "CSS", "UI" ,"API", "tailwindcss"], 
+      }, 
+
+      
       { title: "Personal Portfolio", 
         tech: "Frontend", 
         description: "Personal portfolio website.", 
@@ -149,6 +185,9 @@ export default function Projects() {
         github: "https://github.com/Gemechis27/webproject.git", 
         stack: ["React", "CSS", "UI"], 
       },
+      
+
+      
       { title: "Ambo city System", 
         tech: "Coming Soon, Backend", 
         description: "Student management system for internal campus use.", 

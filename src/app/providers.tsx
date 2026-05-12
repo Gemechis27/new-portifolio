@@ -15,6 +15,4 @@ export function Providers({ children }: { children: React.ReactNode }) {
     </ThemeProvider>
   );
 }
-{/* <Header />
-<main className="flex-1 pt-24">{children}</main>
-<Footer /> */}
+

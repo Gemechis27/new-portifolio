@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://gammey.com
+
+# Sitemaps
+Sitemap: https://gammey.com/sitemap.xml
